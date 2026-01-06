@@ -1,15 +1,30 @@
-const numDivOne = document.getElementById("number-one");
-const numDivTwo = document.getElementById("number-two");
+
+const numOne = document.getElementById("number-one-div");
+const operand = document.getElementById("operand-div")
+const numTwo = document.getElementById("number-two-div");
 const btn = document.getElementById("btn-random");
 
-function generateRandomNum() {
-    const randomNumOne = Math.floor(Math.random() * 100);
-    const randomNumTwo = Math.floor(Math.random() * 100);
-    numDivOne.textContent = randomNumOne;
-    numDivTwo.textContent = randomNumTwo;
+function RandomOperation() {
+
+    numOne.textContent = getRandomNumber(10); // Change the 10 to a seed
+    operand.textContent = getRandomOperand();
+    numTwo.textContent = getRandomNumber(10); // Change the 10 to a seed based 
+                                              //    on difficulty and operand
+
 }
 
-generateRandomNum();
+function getRandomNumber(max) {
+    
+    return Math.floor(Math.random() * max);
 
-btn.addEventListener("click", generateRandomNum);
+}
 
+function getRandomOperand() {
+    
+    return Math.random() < 0.5 ? "+" : "-";
+
+}
+
+RandomOperation();
+
+btn.addEventListener("click", RandomOperation);
