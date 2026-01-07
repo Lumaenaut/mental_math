@@ -11,10 +11,13 @@ let result = 0;
 
 function getOperation() {
 
-    numOneDiv.textContent = getRandomNumber(10); // Change the 10 to a seed
+    // I need to change the order of assignments, first I need to assign the
+    //  the numbers and then use the text to display on divs
+    numOneDiv.textContent = getRandomNumber(10); // Change the 10 to a difficulty seed
     operandDiv.textContent = getRandomOperand();
-    numTwoDiv.textContent = getRandomNumber(10); // Change the 10 to a seed based on difficulty and operand
+    numTwoDiv.textContent = getRandomNumber(10); // Change the 10 to a difficulty seed, besides, not all operations need two numbers
 
+    // Defining operation and result
     numOne = parseInt(numOneDiv.textContent, 10);
     numTwo = parseInt(numTwoDiv.textContent, 10);
     result = getResult(numOne, numTwo, operation);
