@@ -1,30 +1,49 @@
 
-const numOne = document.getElementById("number-one-div");
-const operand = document.getElementById("operand-div")
-const numTwo = document.getElementById("number-two-div");
+const numOneDiv = document.getElementById("number-one-div");
+const operandDiv = document.getElementById("operand-div")
+const numTwoDiv = document.getElementById("number-two-div");
 const btn = document.getElementById("btn-random");
 
-function RandomOperation() {
+let numOne = 0;
+let operation = "";
+let numTwo = 0;
+let result = 0;
 
-    numOne.textContent = getRandomNumber(10); // Change the 10 to a seed
-    operand.textContent = getRandomOperand();
-    numTwo.textContent = getRandomNumber(10); // Change the 10 to a seed based 
-                                              //    on difficulty and operand
+function getOperation() {
+
+    numOneDiv.textContent = getRandomNumber(10); // Change the 10 to a seed
+    operandDiv.textContent = getRandomOperand();
+    numTwoDiv.textContent = getRandomNumber(10); // Change the 10 to a seed based on difficulty and operand
+
+    numOne = parseInt(numOneDiv.textContent, 10);
+    numTwo = parseInt(numTwoDiv.textContent, 10);
+    result = getResult(numOne, numTwo, operation);
 
 }
 
 function getRandomNumber(max) {
-    
+
     return Math.floor(Math.random() * max);
 
 }
 
 function getRandomOperand() {
     
-    return Math.random() < 0.5 ? "+" : "-";
+    operation = Math.random() < 0.5 ? "+" : "-";
+
+    return operation;
 
 }
 
-RandomOperation();
+function getResult(numOne, numTwo, operation) {
+    
+    if (operation == "+"){
+        return numOne + numTwo;
+    } else {
+        return numOne - numTwo;
+    }
+}
 
-btn.addEventListener("click", RandomOperation);
+getOperation();
+
+btn.addEventListener("click", getOperation);
