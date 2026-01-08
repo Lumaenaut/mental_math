@@ -3,24 +3,26 @@ const numOneDiv = document.getElementById("number-one-div");
 const operandDiv = document.getElementById("operand-div")
 const numTwoDiv = document.getElementById("number-two-div");
 const btn = document.getElementById("btn-random");
+const resultInput = document.getElementById("result-input");
 
 let numOne = 0;
-let operation = "";
+let operand = "";
 let numTwo = 0;
 let result = 0;
 
 function getOperation() {
 
-    // I need to change the order of assignments, first I need to assign the
-    //  the numbers and then use the text to display on divs
-    numOneDiv.textContent = getRandomNumber(10); // Change the 10 to a difficulty seed
-    operandDiv.textContent = getRandomOperand();
-    numTwoDiv.textContent = getRandomNumber(10); // Change the 10 to a difficulty seed, besides, not all operations need two numbers
+    // Defining a random operation and its result.
+    numOne = getRandomNumber(10);  // Change the 10 to a difficulty seed
+    operand = getRandomOperand();
+    numTwo = getRandomNumber(10);  // Change the 10 to a difficulty seed, besides, not all operations need two numbers
+    result = getResult(numOne, numTwo, operand);
 
-    // Defining operation and result
-    numOne = parseInt(numOneDiv.textContent, 10);
-    numTwo = parseInt(numTwoDiv.textContent, 10);
-    result = getResult(numOne, numTwo, operation);
+    numOneDiv.textContent = numOne;
+    operandDiv.textContent = operand;
+    numTwoDiv.textContent = numTwo;
+
+    resultInput.focus();
 
 }
 
@@ -32,21 +34,40 @@ function getRandomNumber(max) {
 
 function getRandomOperand() {
     
-    operation = Math.random() < 0.5 ? "+" : "-";
+    operand = Math.random() < 0.5 ? "+" : "-";
 
-    return operation;
+    return operand;
 
 }
 
-function getResult(numOne, numTwo, operation) {
+function getResult(numOne, numTwo, operand) {
+
+    // In the future, the function should generate the following operands:
+    //  +
+    //  -
+    //  *
+    //  /
+    //  **
+    //  sqrt
+    //  These would be cool for now
     
-    if (operation == "+"){
+    if (operand == "+"){
         return numOne + numTwo;
     } else {
         return numOne - numTwo;
     }
 }
 
+function handleInput(e) {
+
+    // This is validating that only digits 0 - 9 are typed
+    e.target.value = e.target.value.replace(/\D/g, "");
+
+    // If the number typed in is equal to the result. create the next operation
+
+}
+
 getOperation();
 
 btn.addEventListener("click", getOperation);
+resultInput.addEventListener("input", handleInput);

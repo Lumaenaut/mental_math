@@ -59,7 +59,12 @@ To do:
     <div id="operand-div">-</div>
     <div id="number-two-div"></div>
     <div>
-        <input type="text" autofocus>
+        <!--
+        autofocus when loaded for first time
+        I need to understand the following code ******************************
+        -->
+        <input id="result-input" type="text" inputmode="numeric"
+            pattern="[0-9]*">
     </div>
     <button id="btn-random">Random</button>
     <script src="script.js"></script>
