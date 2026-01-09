@@ -49,13 +49,14 @@ function getResult(numOne, numTwo, operand) {
     //  /
     //  **
     //  sqrt
-    //  These would be cool for now
+    //  These operations would be enough for a future version
     
     if (operand == "+"){
         return numOne + numTwo;
     } else {
         return numOne - numTwo;
     }
+
 }
 
 function handleInput(e) {
@@ -63,7 +64,12 @@ function handleInput(e) {
     // This is validating that only digits 0 - 9 are typed
     e.target.value = e.target.value.replace(/\D/g, "");
 
-    // If the number typed in is equal to the result. create the next operation
+    const attempt = Number(resultInput.value);
+    
+    if (attempt == result) {
+        getOperation();
+        resultInput.value = ""
+    }
 
 }
 
