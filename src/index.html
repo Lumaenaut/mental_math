@@ -1,20 +1,6 @@
 
 <!--
 
-To add:
-
-    - Addition
-    - Subtraction
-    - Multiplication
-    - Division
-    - Squares
-    - Square Roots
-    - Fractions
-    - Percentages
-    - Modulo
-    - Negative numbers
-
-
 Functionality:
 
     - Submit answer when the correct number is typed
@@ -28,11 +14,6 @@ Modes:
     - Mental
 
 
-Layout;
-
-    - Center all content
-
-
 Future content:
 
     - Time tracker
@@ -40,10 +21,8 @@ Future content:
 
 To do:
 
-    The answer could be negative. I need to handle negative, or prevent them.
     Create a layout to align the numbers, operand and answer field
         Align the operand to the left
-    Move to the next operation once the user has answered correclty
     Remove the button
 
 -->
@@ -54,6 +33,7 @@ To do:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental math</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="number-one-div"></div>
@@ -64,9 +44,9 @@ To do:
         I need to understand the following code ******************************
         -->
         <input id="result-input" type="text" inputmode="numeric"
-            pattern="[0-9]*">
+            pattern="[0-9]*"><br />
+        <button id="btn-random">Random</button>
     </div>
-    <button id="btn-random">Random</button>
     <script src="script.js"></script>
 </body>
 </html>

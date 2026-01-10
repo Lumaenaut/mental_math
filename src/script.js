@@ -13,9 +13,9 @@ let result = 0;
 function getOperation() {
 
     // Defining a random operation and its result.
-    numOne = getRandomNumber(10);  // Change the 10 to a difficulty seed
+    numOne = getRandomNumber(10); // Change the 10 to a difficulty seed
     operand = getRandomOperand();
-    numTwo = getRandomNumber(10);  // Change the 10 to a difficulty seed, besides, not all operations need two numbers
+    numTwo = getRandomNumber(numOne + 1); // Change the 10 to a difficulty seed, besides, not all operations need two numbers
     result = getResult(numOne, numTwo, operand);
 
     numOneDiv.textContent = numOne;
